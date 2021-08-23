@@ -38,6 +38,8 @@ package leetcode.arrays;
  * 계속해서 max를 구하게 되면 n^2의 성능을 보이기 때문에
  * 한번 MAX를 구하고 그 값이 등장할때까지 해당 배열로 채우다가
  * MAX값이 있는 인덱스로 올 경우 새로운 MAX를 찾도록 함.
+ * 
+ * 성능, 속도 99퍼
  */
 public class ReplaceElementsWith {
 
