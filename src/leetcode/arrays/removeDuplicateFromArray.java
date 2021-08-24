@@ -68,7 +68,8 @@ public class removeDuplicateFromArray {
 
     public static int removeDuplicates(int[] nums) {
 
-        if( nums.length < 2 ) return nums.length;
+        if( nums == null || nums.length == 0 )
+            return 0;
 
         int insertPoint = 1;
         int nowNumber = nums[0];
