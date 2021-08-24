@@ -71,19 +71,13 @@ public class removeDuplicateFromArray {
         if( nums == null || nums.length == 0 )
             return 0;
 
-        int insertPoint = 1;
-        int nowNumber = nums[0];
+        int insertPoint = 0;
 
-        for( int i=1; i<nums.length; i++ ){
-
-            if( nowNumber != nums[i] ){
-//                System.out.println("num[" + insertPoint + "] : " + nowNumber + "   nowNumber" + nowNumber);
-                nowNumber = nums[i];
-                nums[insertPoint++] = nowNumber;
-            }
-
+        for (int num : nums) {
+            if ( num != nums[insertPoint] )
+                nums[++insertPoint] = num;
         }
 
-        return insertPoint;
+        return insertPoint+1;
     }
 }
