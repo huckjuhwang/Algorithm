@@ -44,7 +44,6 @@ public class sortArrayByParity {
         int result[] = new int[nums.length];
 
         for(int num : nums){
-
             if( num % 2 == 0 ){
                 result[evenPoint++] = num;
             }else{
