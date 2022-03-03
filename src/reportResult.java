@@ -6,7 +6,7 @@ public class reportResult {
     }
 
     public int[][] solution(int[][] arr1, int[][] arr2) {
-        int[][] answer = new int[arr1.length][arr1[0]];
+        int[][] answer = new int[arr1.length][arr1[0].length];
 
         if( arr1.length == 0 ) return answer;
 
