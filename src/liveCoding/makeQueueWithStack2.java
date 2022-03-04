@@ -38,9 +38,20 @@ public class makeQueueWithStack2 {
         int input[] = {1, 2, 3, 4, 5};
         makeQueueWithStack2 qs = new makeQueueWithStack2();
 
-        for (int i : input) { qs.enQueue(i);}
+       qs.enQueue(1);
 
-        for (int i : input) { System.out.println( qs.deQueue() );}
+        qs.enQueue(2);
+        System.out.println("qs.deQueue() = " + qs.deQueue());
+        qs.enQueue(3);
+        System.out.println("qs.deQueue() = " + qs.deQueue());
+
+        System.out.println("qs.deQueue() = " + qs.deQueue());
+        qs.enQueue(4);
+        qs.enQueue(5);
+
+        System.out.println("qs.deQueue() = " + qs.deQueue());
+
+        System.out.println("qs.deQueue() = " + qs.deQueue());
     }
 
 }
