@@ -1,6 +1,8 @@
 package liveCoding;
 
 
+import java.util.ArrayList;
+
 /**
  * 소수 구하기!!
  *
@@ -24,6 +26,28 @@ public class isPrimeNumber {
 
         for (int i = 2; i*i < num; i++) {
             if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public int[] getPrimeArray(int n){
+        ArrayList<Integer> prime = new ArrayList<>();
+
+        for (int i = 2; i <= n; i++) {
+            if ( isPrime(i) ){
+                prime.add(i);
+            }
+        }
+        return prime.stream().mapToInt(i->i).toArray();
+    }
+
+
+    public static boolean isPrime(int n) {
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if( n % i == 0 ){
                 return false;
             }
         }
