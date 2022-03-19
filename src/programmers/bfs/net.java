@@ -9,6 +9,15 @@ public class net {
         return answer;
     }
 
+
+    public static void main(String[] args) {
+        System.out.println("test");
+
+        String str = null;
+
+        Double b = Double.parseDouble(str);
+        System.out.println(b);
+    }
     private void initVariable(int n) {
         answer = 0;
         visited = new boolean[n];
