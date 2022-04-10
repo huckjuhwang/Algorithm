@@ -22,7 +22,6 @@ public class 연월일_달력_2056 {
                 continue;
             }
 
-            // day유효성 체크
             boolean dayCheck = true;
 
             switch (month) {
