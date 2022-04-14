@@ -32,22 +32,14 @@ public class 백만장자프로젝트_1859 {
                 nums[i] = Integer.parseInt(st.nextToken());
             }
 
-            for (int i = 0; i < m-1; i++) {
-
-                long max = nums[i];
-
-                for (int j = i+1; j < m; j++) {
-                    // setting max
-                    if (nums[j] > max) {
-                        max = nums[j];
-                    }
+            long max = nums[m-1];
+            // 뒤에서 부터 계산 하더록
+            for (int i = m; i > 0; i--) {
+                if( max < nums[i-1]){
+                    max = nums[i-1];
                 }
 
-                // 번 수익에 대한 결과 더하기
-                if (max != 0) {
-                    sum += max - nums[i];
-                }
-
+                sum += max - nums[i - 1];
             }
 
             System.out.println("#" + testCase +  " "  + sum);
