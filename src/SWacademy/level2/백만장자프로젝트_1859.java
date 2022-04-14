@@ -7,10 +7,11 @@ import java.util.StringTokenizer;
 
 
 /**
- * to-do
  *
  * -- testCase 7/10
  * -- 시간초과 이슈
+ *
+ * 22.04.14 개선 완료 ( n^2 -> n )
  */
 public class 백만장자프로젝트_1859 {
 
