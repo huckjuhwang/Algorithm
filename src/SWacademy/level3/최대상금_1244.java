@@ -8,63 +8,74 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 /**
- *
- *  dfs로 변경
+ * *  dfs로 변경
  */
 public class 최대상금_1244 {
+    static int max;
+    //  3
+    //	123 1
+    //	2737 1
+    //	32888 2
 
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine());
+        int t = Integer.parseInt( br.readLine() );
 
         for (int testCase = 1; testCase <= t; testCase++) {
-            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-            String number = st.nextToken();
+            StringTokenizer st = new StringTokenizer(br.readLine()," ");
+            char ch[] = st.nextToken().toCharArray();
             int count = Integer.parseInt(st.nextToken());
+            max = 0;
 
-            int nums[] = new int[number.length()];
-            Integer sort[] = new Integer[number.length()];
+            dfs(ch, count, 0);
 
-            for (int i = 0; i < number.length(); i++) {
-                nums[i] = Integer.parseInt(number.charAt(i) + "");
+            System.out.println("#" + testCase + " " + max);
+        }
+
+    }
+
+
+
+    public static void dfs(char[] ch, int count, int start){
+        // 종료조건
+        if( count == 0 ){
+            int num = getCharToInteger(ch);
+            // 최댓값과 비교 후 insert
+            if( max < num ){
+                System.out.println(num);
+                max = num;
             }
+            return;
 
-
-            for (int i = 0; i < count; i++) {
-                int max = 0;
-                int idx = 0;
-
-                for (int j = 0; j < nums.length; j++) {
-                    if (i == j) {
-                        continue;
-                    }else if (nums[j] >= max) {
-                        max = nums[j];
-                        idx = j;
-                    }
+        }else {
+            for( int i =start; i<ch.length-1; i++){
+                for( int j = i+1; j<ch.length; j++){
+                    ch = swap(ch, i, j);
+                    dfs(ch, count-1, i);
+                    ch = swap(ch, i, j);
                 }
-
-                int temp = nums[i];
-                nums[i] = nums[idx];
-                nums[idx] = temp;
             }
-
-            System.out.print("#" + testCase + " ");
-            for (int i = 0; i < nums.length; i++) {
-                System.out.print(nums[i]);
-            }
-            System.out.println();
-            
         }
     }
 
-    private static int getIDX(int[] nums, int idxVal) {
-        int idx = 0;
-        for (int j = 0; j < nums.length; j++) {
-            if (nums[j] == idxVal) {
-                idx = j;
-                break;
-            } 
-        }
-        return idx;
+
+    /**
+     *   swap함수
+     */
+    public static char[] swap(char[] ch, int i, int j){
+        char temp = ' ';
+        temp = ch[i];
+        ch[i] = ch[j];
+        ch[j] = temp;
+        return ch;
+    }
+
+
+    /**
+     * char배열 -> int형태로 convert
+     */
+    public static int getCharToInteger(char[] ch){
+        return Integer.parseInt(new String(ch));
     }
 }
