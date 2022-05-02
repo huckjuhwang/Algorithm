@@ -29,5 +29,17 @@ public class 배열회전 {
 //        rank5 = new HashSet<>();
 //        List rank5List = new ArrayList(rank5);
 //        Collections.sort(rank5List, Collections.reverseOrder());
+
+
+
+//        @Override
+//        public int compareTo(Node other) {
+//            if (this.getFail() == other.getFail()) {
+//                // 오름차순
+//                return Integer.compare(this.getStage(), other.getStage());
+//            }
+//            // 내림차순
+//            return Double.compare(other.getFail(), this.getFail());
+//        }
     }
 }
