@@ -29,13 +29,13 @@ public class 개미전사 {
             numbers[i] = Integer.parseInt(st.nextToken());
         }
 
-        int dp[] = new int[100];
-        dp[0] = numbers[0];
-        dp[1] = Math.max(numbers[0], numbers[1]);
-        for (int i = 2; i < n; i++) {
-            dp[i] = Math.max(numbers[i] + dp[i - 2], dp[i - 1]);
-        }
+        int d[] = new int[n];
+        d[0] = numbers[0];
+        d[1] = numbers[1];
 
-        System.out.println(dp[n-1]);
+        for (int i = 2; i < n; i++) {
+            d[i] = Math.max(d[i - 1], d[i - 2] + numbers[i]);
+        }
+        System.out.println(d[n-1]);
     }
 }

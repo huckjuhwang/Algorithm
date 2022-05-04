@@ -1,5 +1,4 @@
-package 동빈나.이진탐색;
-
+package SWacademy.꿀팁;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.util.StringTokenizer;
 /*
 zoho 인터뷰
  */
-public class 특정수의개수구하기 {
+public class 특정수개수구하기 {
 
 
     public static int lowerBound(int[] arr, int target, int start, int end) {
