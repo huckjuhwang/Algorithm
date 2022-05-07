@@ -1,4 +1,4 @@
-package arrays;
+package 동빈나.arrays;
 
 import java.util.ArrayList;
 

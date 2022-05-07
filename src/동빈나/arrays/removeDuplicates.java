@@ -1,4 +1,4 @@
-package arrays;
+package 동빈나.arrays;
 
 public class removeDuplicates {
     public int removeDuplicates(int[] nums) {
