@@ -3,7 +3,7 @@ package 동빈나.DP;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.*;
 
 public class 편집거리 {
 
@@ -34,10 +34,49 @@ public class 편집거리 {
 
     public static void main(String[] args) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
-        String str1 = sc.next();
-        String str2 = sc.next();
-        // 최소 편집 거리 출력
-        System.out.println(minDistance(str1, str2));
+//        Scanner sc = new Scanner(System.in);
+//        String str1 = sc.next();
+//        String str2 = sc.next();
+//        // 최소 편집 거리 출력
+//        System.out.println(minDistance(str1, str2));
+
+
+        int[] solution = solution(new int[][]{{1, 4}, {3, 4}, {3, 10}});
+        for (int i = 0; i < solution.length; i++) {
+            System.out.println(solution[i]);
+        }
     }
+
+
+
+    public static int[] solution(int[][] v) {
+        int[] answer = {};
+
+        List<Integer> xList = new ArrayList<>();
+        List<Integer> yList = new ArrayList<>();
+
+        HashMap<Integer, Integer> xMap = new HashMap<>();
+        HashMap<Integer, Integer> yMap = new HashMap<>();
+
+
+
+        for(int[] var : v){
+            if (xMap.get(var[0]) == null)   xMap.put(var[0],1);
+            else  xMap.remove(var[0]);
+
+            if (yMap.get(var[1]) == null)   yMap.put(var[1],1);
+            else  yMap.remove(var[1]);
+        }
+
+        int x = 0;
+        int y = 0;
+        for (Integer key : xMap.keySet())
+            x = key;
+
+        for (Integer key : yMap.keySet())
+            y = key;
+
+        return new int[]{x, y};
+    }
+
 }
