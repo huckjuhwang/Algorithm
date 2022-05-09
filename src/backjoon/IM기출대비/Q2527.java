@@ -26,35 +26,25 @@ public class Q2527 {
             Point b = new Point(x, y, p, q);
 
 
-//            if((x==pp&&q==yy)||(x==pp&&y==qq)||(p==xx&&y==qq)||(p==xx&&q==yy)) {
-//                System.out.println("c");
-//            }else if((p==xx&&q!=yy)||(x==pp&&q!=yy)||(p!=xx&&y==qq)||(x!=pp&&y==qq)) {
-//
-//                System.out.println("b");
-//            }else if(xx>p||yy>q||pp<x||qq<y){
-//                System.out.println("d");
-//            }else {
-//                System.out.println("a");
-//            }
-
-            // 점인 경우 (0)
+            // 점인 경우
             if ((a.x == b.p && a.y == b.q) ||
                     (a.q == b.x && a.p == b.y) ||
                     (a.p == b.x && a.y == b.q) ||
                     (a.x == b.p && a.q == b.y)) {
                 System.out.println("c");
-            }else
-            // 선분인 경우 (1)
-            if((a.p == b.x && a.q != b.y) ||
-                    (a.x == b.p && a.q != b.y) ||
-                    (a.p != b.x && a.y == b.q) ||
-                    (a.x != b.p && a.y == b.q) ){
-                System.out.println("b");
-            }else if (a.p < b.x || a.q < b.y || b.p < a.x || b.q < a.y) {
-                    System.out.println("a");
-                }
-            else{
+            }else if ((a.p == b.x && a.q != b.y) ||
+                        (a.q == b.y && a.p != b.x) ||
+                        (a.x == b.p && a.y != b.q) ||
+                        (a.y == b.q && a.x != b.p)) {
+                    System.out.println("b");
+            } else if (a.p < b.x ||
+                    a.q < b.y ||
+                    b.p < a.x ||
+                    b.q < a.y) {
+
                 System.out.println("d");
+            } else {
+                System.out.println("a");
             }
             // 나머지 (3)
 
@@ -74,21 +64,5 @@ class Point{
         this.y = y;
         this.p = p;
         this.q = q;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getP() {
-        return p;
-    }
-
-    public int getQ() {
-        return q;
     }
 }
