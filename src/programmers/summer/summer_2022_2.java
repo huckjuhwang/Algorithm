@@ -70,13 +70,11 @@ class Room implements Comparable<Room>{
     private int distance;
     private String name;
 
-
     public Room(int seatCount, int distance, String name) {
         this.seatCount = seatCount;
         this.distance = distance;
         this.name = name;
     }
-
 
     public int getSeatCount() {
         return seatCount;
@@ -85,7 +83,6 @@ class Room implements Comparable<Room>{
     public int getDistance() {
         return distance;
     }
-
 
     public String getName() {
         return name;

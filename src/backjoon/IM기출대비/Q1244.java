@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+
+/**
+ * https://www.acmicpc.net/workbook/view/8399
+ */
 public class Q1244 {
 
     static int MAN = 1;
