@@ -35,6 +35,7 @@ public class 다양성 {
         int answer= getElementTypeCount(data, n);
 
         System.out.println(answer);
+
     }
 
 }
