@@ -1,37 +1,75 @@
 package 구름EDU.공간활용하기;
+import java.io.*;
+import java.lang.*;
+import java.util.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class 색종이 {
-    public static void main(String[] args) throws IOException {
+    public static final Scanner scanner = new Scanner(System.in);
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine());
+    /**
+     * 색종이들이 덮고 있는 영역의 총 넓이를 계산하는 함수
+     *
+     * @param papers
+     * @param n
+     * @return
+     */
+    public static int getCoveredArea(Paper[] papers, int n)
+    {
+        int answer = 0; //색종이들이 덮은 영역의 총 넓이
+        int borad[][] = new int[101][101];
 
-        for (int i = 0; i < t; i++) {
-            int arr[][] = new int[101][101];
-            int n = Integer.parseInt(br.readLine());
-            int count = 0;
+        for(Paper p : papers){
 
-            for (int j = 0; j < n; j++) {
-                StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-                int y = Integer.parseInt(st.nextToken());
-                int x = Integer.parseInt(st.nextToken());
-
-                for (int k = x; k < x+10; k++) {
-                    for (int l = y; l < y+10; l++) {
-                        // 한번도 등장하지 않았을 경우
-                        if(arr[k][l] == 0) {
-                            arr[k][l]++;
-                            count++;
-                        }
+            for(int i =p.bottomRow; i<=p.topRow; i++){
+                for(int j=p.leftColumn; j<=p.rightColumn; j++){
+                    if( borad[i][j] == 0 ){
+                        answer++;
+                        borad[i][j] = 1;
                     }
                 }
             }
-            System.out.println(count);
         }
+        return answer;
+    }
+
+    public static void main(String[] args) throws Exception {
+        int caseSize = scanner.nextInt();
+
+        for (int caseIndex = 1; caseIndex <= caseSize; caseIndex += 1)
+        { //각 테스트케이스에 대하여
+            int n = scanner.nextInt();
+
+            //색종이들의 정보를 입력 받는다.
+            Paper[] papers = new Paper[n];
+            for(int i = 0 ; i < n ; i ++)
+            {
+                int leftX = scanner.nextInt();
+                int bottomY = scanner.nextInt();
+                papers[i] = new Paper(leftX, bottomY);
+            }
+
+            //색종이들이 덮은 영역의 넓이를 계산한다.
+            int answer = getCoveredArea(papers, n);
+
+            System.out.println(answer);
+        }
+    }
+
+}
+
+
+class Paper
+{
+    int leftColumn;   //가장 왼쪽 격자의 열 번호
+    int rightColumn;  //가장 오른쪽 격자의 열 번호
+    int topRow;       //가장 위쪽 격자의 행 번호
+    int bottomRow;    //가장 아래쪽 격자의 행 번호
+    Paper(int xPos, int yPos)
+    {
+        this.leftColumn = xPos;
+        this.rightColumn = this.leftColumn + 9;
+        this.bottomRow = yPos;
+        this.topRow = this.bottomRow + 9;
     }
 }

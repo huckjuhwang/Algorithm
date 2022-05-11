@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class 테네스의특별한소수_4698 {
-
     static int MAX_SIZE =1000000;
 
     public static void main(String[] args) throws IOException {
@@ -29,9 +28,9 @@ public class 테네스의특별한소수_4698 {
                 // 원하는 자연수 사이에 존재하면서,
                 // number가 D의 값을 포함하고 있다면,
                 if( num >= A && num <= B){
-                    if ((num + "").contains(D + ""))  count++;
+                    if (Integer.toString(num).contains(Integer.toString(D)))  count++;
                 }
-                // num이 B보다 커질 경우 이후 값은 보지 않아도됨.
+                // num이 B보다 커질 경우 이후 값은 보지 않아도됨(가지치기)
                 if(num > B) break;
             }
 
