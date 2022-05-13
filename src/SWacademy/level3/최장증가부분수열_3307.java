@@ -23,26 +23,24 @@ public class 최장증가부분수열_3307 {
                 number[i] = Integer.parseInt(st.nextToken());
             }
 
-            int beforeP = 0;
-            int afterP = 0;
-            int count = 1;
+
             int max = 0;
 
-            for (int i = 0; i < n-1; i++) {
-                beforeP = i;
-                for (int j = i + 1; j < n; j++) {
-                    if (number[beforeP] < number[j]) {
-                        System.out.println(number[beforeP]);
-                        beforeP = j;
-                        count++;
-                    }
+            int dp[] = new int[n];
+
+            for (int i = 0; i < n; i++) {
+                dp[i] = 1;
+                for (int j = 0; j < i; j++) {
+                    if( number[i] > number[j] )
+                        dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
-                if (max < count) {
-                    max = count;
-                }
-                count = 1;
             }
-            System.out.println( "#" + testCase + " " + max);
+
+            for (int i = 0; i < dp.length; i++) {
+                max = Math.max(max, dp[i]);
+            }
+
+            System.out.println("#" + testCase + " " +max);
         }
 
     }
