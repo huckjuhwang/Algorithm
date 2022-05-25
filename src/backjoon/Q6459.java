@@ -47,32 +47,25 @@ public class Q6459 {
         return answer;
     }
 
+    public static void testCase(int caseIndex) {
+        int n = scanner.nextInt();
 
-    public static void main(String[] args) throws IOException {
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int n = -1;
-        while (n != 0) {
-            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-            n = st.countTokens();
-            if (n == 1) {
-                long i = Integer.parseInt(st.nextToken());
-                if( i == 0 ) break;
-                System.out.print(i);
-            }else{
-                Histogram[] histograms = new Histogram[n];
-
-                for(int i = 0 ; i < n ; i ++) {
-                    int height = Integer.parseInt(st.nextToken());
-                    histograms[i] = new Histogram(i, height);
-                }
-
-                long answer = getLargestRectangleArea(n, histograms);
-                System.out.print(answer);
-            }
+        Histogram[] histograms = new Histogram[n];
+        for(int i = 0 ; i < n ; i ++) {
+            int height = scanner.nextInt();
+            histograms[i] = new Histogram(i, height);
         }
 
+        long answer = getLargestRectangleArea(n, histograms);
+        System.out.println(answer);
+    }
+
+    public static void main(String[] args) throws Exception {
+        int caseSize = scanner.nextInt();
+
+        for (int caseIndex = 1; caseIndex <= caseSize; caseIndex += 1) {
+            testCase(caseIndex);
+        }
     }
 
 }
