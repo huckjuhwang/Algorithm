@@ -86,7 +86,7 @@ class human implements Comparable<human> {
         this.sum = sum;
     }
 
-    // < -1 오름차순, > -1 내림차순
+    // < 1 오름차순, > -1 내림차순
     @Override
     public int compareTo(human o) {
         // 합계는 큰값 먼저 출력
