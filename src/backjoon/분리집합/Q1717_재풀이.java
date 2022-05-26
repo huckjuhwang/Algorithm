@@ -42,7 +42,7 @@ public class Q1717_재풀이 {
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
 
-            // 부모의 값을 ㅗ 넣어줌
+            // 부모의 값을 넣어줌
             if (state == 0) {
                 union(a, b);
             } else if (state == 1) {
