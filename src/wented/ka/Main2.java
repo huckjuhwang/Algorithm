@@ -1,4 +1,4 @@
-package wented.kakaostyle;
+package wented.ka;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,5 @@
-package wented.kakaostyle;
+package wented.ka;
 
-import java.util.HashMap;
 import java.util.Locale;
 
 public class Main1 {
