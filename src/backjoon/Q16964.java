@@ -69,6 +69,7 @@ public class Q16964 {
         // 방문처리
         visited[x] = true;
 
+
         HashSet<Integer> set = new HashSet<>();
         for (int next : list.get(x)) {
             if (!visited[next]) {
