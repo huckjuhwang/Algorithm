@@ -5,6 +5,7 @@ import java.util.Arrays;
 class EqualsText {
     public static void main(String[] args) {
         System.out.println(solution("aaabbbccc"));
+        solution("test");
     }
 
     public static int[] solution(String s) {
