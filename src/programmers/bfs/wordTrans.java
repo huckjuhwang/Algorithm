@@ -3,7 +3,7 @@ package programmers.bfs;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class wordTrans {
+public class ₩wordTrans {
     int cnt = 0;
 
     class bfsObject{
